@@ -11,3 +11,4 @@ http://it-ebooks.directory/
 dw in vi to delete word 
 http://www.lagmonster.org/docs/vi2.html
 http://es6-features.org/#BinaryOctalLiteral
+ps aux | grep java
