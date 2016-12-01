@@ -1,2 +1,9 @@
 notes
 lsof i:[portnum]
+http://www.thegeekstuff.com/2010/11/50-linux-commands/?utm_source=feedburner
+
+grep -i wordinquotes filename
+
+vi : u to undo
+vi : :redo to redo
+http://it-ebooks.directory/
