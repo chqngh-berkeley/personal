@@ -1,0 +1,388 @@
+15 stage pipeline: Additional Reference on Pipelines
+
+1BP: 1-bit branch predictor
+
+4 C's - compulsory Misses: the first time a block is accessed by the cache
+
+4 C's - capacity Misses: blocks must be evicted due to the size of the cache. 
+
+4 C's - coherence Miss: processors are accessing the same block. Processor A writes to the block. Even though Processor B has the block in its cache, it is a miss, because the block is no longer up-to-date.  Additional Reference on on Caches
+
+4 C's - conflict Misses: associated with set associative and direct mapped caches - another data address needs the cache block and must replace the data currently in the cache.
+
+advanced cache optimizations: Additional Reference on Advanced Cache Optimizations
+
+ALAT: advance load table - stores advance information about load operations Additional Reference on ALAT
+
+aliasing: in the BTB, when two addresses overlap with the same BTB entry, this is called aliasing. Aliasing should be kept to <1%. 
+
+ALU: arithmetic logic unit
+
+AMAT: average memory access time
+
+AMAT: Average Memory Access Time = hit time + miss rate * miss penalty
+
+Amdahl's Law: an equation to determine the improvement of a system when only a portion of the system is improved. 
+Additional Reference on Amdahl's Law
+
+architectural registers: registers (Floating point and General Purpose) that are visible to the programmer.
+
+ARF: architectural register file or retirement register file Additional Reference on Registers
+
+Asynchronous Message Passing: a processor requests data, then continues processing instructions while message is retrieved. 
+
+BHT: branch history table - records if branch was taken or not taken.
+
+blocking cache: the cache services only one block at a time, blocking all other requests
+
+BTB: branch target buffer - keeps track of what address was taken last time the processor encountered this instruction. 
+
+cache: Additional Reference on Caches
+
+cache coherence definition #1: Definition #1 - A read R from address X on processor P1 returns the value written by the most recent write W to X on P1 if no other processor has written to X between W and R. Additional Reference on Cache Coherence
+
+cache coherence definition #2: Definition #2 - If P1 writes to X and P2 reads X after a sufficient time, and there are no other writes to X in between, P2’s read returns the value written by P1’s write. 
+
+cache coherence definition #3: Definition #3 - Writes to the same location are serialized:two writes to location X are seen in the same order by all processors. 
+
+cache hit: desired data is in the cache and is up-to-date
+
+cache miss: desired data is not in the cache or is dirty
+
+cache review: a cache review can be found at Additional Reference on Caches Additional Reference on Caches
+
+cache thrashing: when two or more addresses are competing for the same cache block. The processor is requesting both addresses, which results in each access evicting the previous access.Additional Reference on Cache Thrashing
+
+CDB: common data bus Additional Reference on the Common Data Bus
+
+check pointing: store the state of the CPU before a branch is taken. Then if the branch is a misprediction, restore the CPU to correct state. Don't store to memory until it is determined this is the correct branch. 
+
+CISC Processor: complex instruction set
+
+CMP: chip multiprocessor
+
+coarse multi-threading: the thread being processed changes every few clock cycles
+
+coherence: [Additional Reference on Coherence[13]
+
+computer architecture Additional Reference on Computer Architecture
+
+consistency: order of access to different addresses Additional Reference on Consistency
+
+control hazard: branching and jumps cannot be executed until the destination address is known
+
+CPI: cycle per instruction
+
+CPU: central processing unit
+
+Dark Silicon: the gap between how many transistors are on a chip and how many you can use simultaneously. The simultaneous usage is determined by the power consumption of the chip. 
+
+data hazard: the order of the program is changed which results in data commands being out of order, if the instructions are dependent - then there is a data hazard. 
+
+DDR SDRAM: double data rate synchronous dynamic RAM
+
+dependency chain: long series of dependent instructions in code Additional Reference on Dependency Chains
+
+directory protocols: information about each block state in the caches is stored in a common directory. 
+Additional Reference on Directories
+
+distributed caches: Additional Reference on Distributed Caches
+
+DRAM: dynamic random access memory
+
+DSM: distributed shared memory - all processors can access all memory locations
+
+DSP Processor: a processor designed for digital signal processing tasks
+
+ECC: error correct code
+
+Enterprise class: used for large scale systems that service enterprises
+
+error: defect that results in failure
+
+error forecasting: estimate presence, creation, and consequences of errors
+
+error removal: removing latent errors by verification
+
+exclusion property: each cache level will not contain any data held by a lower level cache
+
+explicit ILP: compiler decides which instruction to execute in parallel
+
+failure: the cause of an error
+
+fault avoidance: prevent an occurrence of faults by construction
+
+fault tolerance: prevent faults from becoming failures through redundancy
+
+faults: actual behavior deviates from specified behavior
+
+FIFO: first in first out
+
+fine multi-threading: the thread being processed changes every cycle
+
+FLOPS: floating point operations per second
+
+Flynn's Taxonomy: classifications of parallel computer architecture, SISD, SIMD, MISD, MIMD 
+Additional Reference on Flynn's Taxonomy
+
+FPR: floating point register
+
+FSB: front side bus
+
+Geometric Mean: the nth root of the product of the numbers
+
+global miss rate: (the # of L2 misses)/(# of all memory misses)
+
+GPR: general purpose register
+
+hit latency: time it takes to get data from cache. Includes the time to find the address in the cache and load it on the data lines
+
+ILP: instruction level programming Additional Reference on ILP, ILP Ref #2, Additional ILP References
+
+inclusion property: each level of cache will include all data from the lower level caches
+
+IPC: instructions per cycle
+
+Iron Law: execution time is the number of executed instructions N (write N in in the ExeTime for Single-Cycle), times the CPI (write x1), times the clock cycle time (write 2ns) so we get N2ns (write =N2ns) for single-cycle. 
+
+Iron Law: instructions per program depends on source code, compiler technology, and ISA. CPI depends upon the ISA and the micro architecture. Time per cycle depends upon the micro architecture and the base technology. 
+
+iron law of computer performance: relates cycles per instruction, frequency and number of instructions to computer performance
+
+ISA: instruction set architecture
+
+Itanium architecture: an explicit ILP architecture, six instructions can be executed per clock cycle
+
+Itanium Processor: Intel family of 64-bit processors that uses the Itanium architecture
+
+Lamport's Bakery Algorithm An algorithm to choose which process will be able to acquire the lock. Additional Reference
+
+LFU: least frequently used
+
+LLC last level cache
+
+ll and sc: load link and store conditional, a method using two instructions ll and sc for ensuring synchronization. 
+Additional Reference on Synchronization
+
+local miss rate: # of L2 misses/ # of L1 misses
+
+locality principle: things that will happen soon are likely to be similar to things that just happened.
+
+loop interchange: used for nested loops. Interchange the order of the iterations of the loop, to make the accesses of the indexes closer to what is actually the layout in memory
+
+LRU: least recently used
+
+LSQ: load store queue Additional Reference on LSQ
+
+MCB: memory conflict buffer - "Dynamic Memory Disambiguation Using the Memory Conflict Buffer", see also "Memory Disambiguation" Additional Reference on MCB, Additional Reference on Memory Disambiguation
+
+memory dependence prediction: Additional Reference on Memory Dependence Prediction
+
+memory level parallelism: overlapping misses in a non-blocking cache leads to improved performance.
+
+MOESI Protocol: modified-exclusive-owner-shared-invalid protocol, the states of any cached block.
+
+MESI Protocol: modified-exclusive-shared-invalid protocol, the states of any cached block.
+
+Message Passing: a processor can only access its local memory. To access other memory locations is must send request/receive messages for data at other memory locations. 
+
+meta-predictor: a predictor that chooses the best branch predictor for each branch. 
+
+MIMD: multiple instruction stream, multiple data streams
+
+MISD: multiple instruction streams, single data stream
+
+miss latency: time it takes to get data from main memory. This includes the time it takes to check that it is not in the cache and then to determine who owns the data, and then send it to the CPU. 
+
+MLP memory level parallelism
+
+mobo: mother board
+
+Moore's Law: Gordon E. Moore observed the number of transistors on an integrated circuit board doubles every two years.
+
+MP: multiprocessing
+
+MPKI: Misses per Kilo Instruction
+
+MSI Protocol: modified-shared-invalid protocol, the states of any cached block. 
+
+MTPI: message transfer part interface
+
+MTTF: mean time to failure
+
+MTTR: mean time to repair
+
+multi-level caches: caches with two or more levels, each level larger and slower than the previous level. 
+Additional Reference on Mulit-level Caches
+
+mutex variable: mutually exclusive (mutex), a low level synchronization mechanism. A thread acquires the variable, then releases it upon completion of the task. During this period no other thread can acquire the mutex.  Additional Reference on Mutexes
+
+NMRU: not most recently used
+
+non-blocking caches: if there is a miss, the cache services the next request while waiting for memory
+
+NUMA: non-uniform memory access, also called a distributed shared memory
+
+OOO: out of order
+
+OS: operating system
+
+PAPT: physically addressed, physically tagged cache - the cache stores the data based on its physical address
+
+PC: program counter
+
+PCI: peripheral component interconnect
+
+Pentium Processor: x86 super scalar processor from Intel Additional Reference on the Pentium
+
+phantom exceptions: if a branch is mispredicted a number of instructions are executed before the misprediction is detected. It is possible to generate an exception within these executed instructions, this is a phantom exception, it should never have occurred.
+
+physical registers: registers, FP and GP that are not visible to the programmer
+
+pipeline burst cache: Additional Reference on Pipeline Burst Cache
+
+pipelined cache: a pipelined burst cache uses 3 clock cycles to transfer the first data set from a cache block, then 1 clock cycle to transfer each of the rest. The pipeline and the 'burst'. (3-1-1-1) Reference on Pipelined Caches, Additional Reference on Pipelined Caches Additional Reference on Pipeline Caches
+
+PIPT: physically indexed, physically tagged cache.
+
+Power: Power = 1/2C V^2 * f Alpha
+
+Power Architecture: performance optimization with enhanced RISC
+
+Power vs Performance Equation: P ~ f^3 (assuming V ~ f, see Processor Speed, Power, Cost)
+
+pre-fetch buffer: when getting data from memory, get all the data in the row and store it in a buffer. 
+Additional Reference on Pre-fetch Buffers
+
+pre-fetching cache: instructions are fetched from memory before they are needed by the cpu "
+
+Prescott Processor: Based on the Netburst architecture. It has a 31 stage pipeline in the core. The high penatly paid for mispredictions is supposedly offset with a Rapid Execution Engine. It also has a trace execution cache, this stores decoded instructions and then reuses them instead of fetching and decoding again. 
+
+PRF: physical register file
+
+pseudo associative cache: an address is first searched in 1/2 of the cache. If it is not there, then it is searched in the other half of the cache. Additional Reference on Caches
+
+RAID: redundant array of independent disks
+
+RAID 0: strips of data are stored on disks - alternating between disks. Each disk supplies a portion of the data, which usually improves performance.  Additional Reference on RAID
+
+RAID 1: the data is replicated on another disk. Each disk contains the data. Which ever disk is free responds to the read request. The write request is written to one disk and then mirrored to the other disk(s). Additional Reference on RAID
+
+RAID 2 and RAID 3: the data is striped on disks and Hamming codes or parity bits are used for error detection. RAID 2 and RAID 3 are not used in any current application
+
+RAID 4: Data is striped in large blocks onto disks with a dedicated parity disk.  It is used by the NetApp company.
+
+RAID 5: Data is striped in large blocks onto disks, but there is no dedicated parity disk. The parity for each block is stored on one of the data blocks.
+
+RAR: read after read
+
+RAS: return address stack
+
+RAT: register alias table
+
+RAT: register allocation table - Additional Reference on RAT
+
+RAW: read after write
+
+RDRAM: direct random access memory
+
+relaxed consistency: some instructions can be performed ooo and still maintain consistency 
+Additional Reference on Relaxed Consistency
+
+reliability: measure of continuous service accomplishment
+
+reservation stations: function unit buffers
+
+RETO: return from interrupt
+
+RF: register file
+
+RISC Processor: reduced instruction set - simple instructions of the same size. Instructions are executed in one clock cycle
+
+ROB: re-order buffer
+
+RS: reservation station
+
+RWX: read - write- execute permissions on files
+
+SHARC processor: floating point processors designed for DSP applications Additional Reference on the SHARC Processor
+
+SIMD: singe instruction stream, multiple data streams
+
+simultaneous multi-threading: instructions from different threads are processed, even in the same cycle
+
+SISD: single instruction stream , single data stream
+
+SMP: symmetric multiprocessing
+
+SMT: simultaneous multi threading
+
+snooping protocols: A broadcast network - caches for each processor watch the bus for addresses in their cache. 
+
+SPARC processor: Scalable Processor Architecture -a RISC instruction set processor
+
+spatial locality: if we access a memory location, nearby memory locations have a tendency to be accessed soon. 
+
+Speedup: how much faster a modified system is compared to the unmodified system.
+
+SPR: special purpose registers - such as program counter, or status register
+
+SRAM: static random access memory
+
+structural hazard: the pipeline contains two instructions attempting to access the same resource.
+
+super scalar architecture: the processor manages instruction dependencies at run-time. Executes more than one instruction per clock cycle using pipelines.
+
+synchronization: "a system is sequentially consistent if the result of any execution is the same as if the operations of all the processors were executed in some sequential order, and the operations for each individual processor appear in the order specified by the program." Quote by Leslie Lamport
+
+Synchronous Message Passing: a processor requests data then waits until the data is received before continuing.
+
+tag: the part of the data address that is used to find the data in the cache. This portion of the address is unique so that it can be distinguished from other lines in the cache. 
+
+temporal locality: if a program accesses a memory location, it tends to access the same location again very soon. 
+
+TLB: translation look aside buffer - a cache of translated virtual memory to physical memory addresses. TLB misses are very time consuming Additional Reference on Look Aside Bufferes
+
+Tomasulo's Algorithm: achieve high performance without using special compilers by using dynamic scheduling 
+Additional Reference on the Tomasulo algorithm, Additional Reference for Tomasulo's Algorithm
+
+tournament predictor: a meta-predictor
+
+trace caches: sets of instructions are stored in a separate cache. These are instructions that have been decoded and executed. If there is a branch in the set, only the taken branch instructions are kept. If there is a misprediction the trace stops. Reference on Trace Caches
+
+trace scheduling: rearranging instructions for faster execution, the common cases are scheduled first Additional Reference on Static ILP, Reference on Trace_scheduling
+
+tree, tournament, dissemination barriers: types of structures for barriers 
+Additional Reference on Barriers
+
+UMA: uniform memory access - all memory locations have similar latencies
+
+vector registers: hold data for vector processing for SIMD
+
+victim cache: a cache that holds recently evicted blocks.  The link is to a victim simulator (don't use the first trace program, need Firefox, java7).  Additional Reference on Victim Caches
+
+VIPT: virtually indexed physically tagged
+
+VIPT: virtually indexed physically tagged - the cache receives the virtual address as does the TLB (in parallel). If a hit, okay, if a miss, the physical address is already translated.  Additional Reference on Virtual Memory
+
+virtual memory: a method of allowing a process to access RAM memory independently of other processes. RAM memory is used by all processes, which means there is probably not enough RAM for all processes at the same time. The virtual address is used to point to an address, either RAM or Disk. The program sees it as the same, the TLB translates between request and the actual memory.  Additional Reference on Virtual Memory
+
+VIVT: virtually indexed virtually tagged
+
+VIVT: virtually indexed, virtually tagged cache - the cache is virtually addressed by the cpu. On a cache miss the virtual address must be translated to the physical address
+
+VLIW: very long instruction word
+
+VPN/PPN: Virtual Physical Network, Physical page network
+
+WAR: write after read
+
+WAW: write after write
+
+way prediction: set associative caches are fast but use a lot of energy. To save energy, predict the address that will be selected. This reduces the energy wasted searching the entire cache.  Additional Reference on Way Prediction
+
+write invalidate: a write to shared data forces invalidation of all other cached copies
+
+write update: a write to shared data is broadcast to update copies
+
+XEON: x86 processors that can operate together to form dual and quad core systems

@@ -4,11 +4,12 @@ http://www.thegeekstuff.com/2010/11/50-linux-commands/?utm_source=feedburner
 
 grep -i wordinquotes filename
 
-vi:  
+vi:
  u to undo
  redo to redo
 http://it-ebooks.directory/
-dw in vi to delete word 
+dw in vi to delete word
 http://www.lagmonster.org/docs/vi2.html
 http://es6-features.org/#BinaryOctalLiteral
 ps aux | grep java
+ctrl-u
