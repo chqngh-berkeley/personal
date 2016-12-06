@@ -1,0 +1,81 @@
+Memory references:
+address accessed recently: temporal locality
+likely to access address nearby: spacial locality
+
+main memory large and slow to access
+lots of spatial and temporal locality
+
+cache lookup
+cache hit/cache miss
+
+cache miss: copy location to cache
+
+Average Memory Access Time(AMAT)
+AMAT = Hit time + miss rate * miss penalty
+lower the better
+
+amat = (1-miss rate) * hit time + miss rate * miss time
+
+L1 cache: directly service read/write from the processor
+16-64kb (90% hit rate)
+
+how to determine hit or miss?
+how to determine what to kick out?
+
+
+block/line size: how many bytes in each entry
+
+32kb cache
+64 b block size
+
+
+cache block start address:
+block aligned addresses
+64B block: 0..63, 64..127, ...
+
+block offset and block number
+
+if block size = 16, 2^4, we need 4 bits to tell the block offset
+bits before the block offset is the block number
+
+cache tags:
+contains at least 1 bit from the block number
+
+valid bit:
+added to each line that tells whether the tags and data are valid
+hit = (tag == block #) & valid
+
+types of caches:
+fully associative: any block can be in any line
+direct mapped: a block can go into 1 line
+set-associative: n lines where a block can be
+
+direct mapped:
+mod% line number
+addr: tag, index(which line in the cache), block offset
+upsides: look in only 1 place, cheap, energy efficient
+downsides: block must go in one place, conflicts
+
+set-associative caches:
+n-way set associative=> a block can be in one of N lines
+8 lines, 4 sets, 2 way associative
+index bit: number of sets
+
+fully associative cache:
+offsets,
+no index bits,
+tag
+
+direct map cache = 1 way set associative
+fully associative = n-way SA N=#of lines
+
+offsets = log2(block size)
+index = log2(# of sets)
+tag = remaining bits
+
+cache replacement:
+set is full
+
+write policy:
+
+allocate policy: do we insert blocks we write?
