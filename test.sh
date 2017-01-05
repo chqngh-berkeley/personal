@@ -5,7 +5,7 @@ DEST_FILE=/data/testtest/weatherdata
 DEST_FILE_COUNT=1
 touch "$DEST_FILE.$DEST_FILE_COUNT.csv"
 
-for f in /data/historical_daily/*.csv;
+#for f in /data/historical_daily/*.csv;
 do
    tail -n +2 "$f" > "$f.tmp"
    cat "$f.tmp" >> "$DEST_FILE.$DEST_FILE_COUNT.csv"
